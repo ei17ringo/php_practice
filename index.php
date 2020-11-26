@@ -82,4 +82,124 @@ echo $fruits[0];  //lemonが表示される
 
 // 変数の中身を確認できる
 var_dump($fruits);
+
+// 連想配列
+echo '<br>';
+echo '------- 連想配列 ------';
+echo '<br>';
+// ['キー名1' => '値1','キー名2' => '値2','キー名3' => '値3',...]
+// 1:男性 2:女性
+$friends = ['friend_name' => 'seedくん','area' => 'セブ島','gender' => 1,'age' => 3];
+
+echo $friends['friend_name'];  //seedくん　が表示される
+
+// 値を追加
+$friends['hobby'] = 'programming';
+
+var_dump($friends);
+echo '<br>';
+// 練習問題
+// $friends ($friends2) にペアの方の情報を入力し、hobbyを表示してみましょう
+$friends = ['friend_name' => 'ブルーノくん','area' => 'ブラジル','gender' => 1,'age' => 22,'hobby' => 'ボドゲ'];
+echo $friends['hobby'];
+$friends['friend_name'] = 'ブルーノくん';
+$friends['area'] = 'ブラジル';
+$friends['age'] = 22;
+$friends['hobby'] = 'ボドゲ';
+echo '<br>';
+
+// チャレンジャー問題
+// 情報を使って文章を組み立てましょう　例）〇〇さんの趣味は△△です。
+echo $friends['friend_name'] . 'の趣味は' . $friends['hobby'] . 'です';
+echo '<br>';
+
+// 二次元配列の場合
+$teacher1 = ['name' => 'かん先生','area' => '香川', 'age' => 24];
+$teacher2 = ['name' => 'いけあつ先生', 'area' => '千葉', 'age' => 29];
+
+// 先生の情報が、２次元配列になる
+$teachers = [$teacher1,$teacher2];
+// 変数にしなくてもかける。が、みずらい。
+// $teachers = [
+//     ['name' => 'かん先生','area' => '香川', 'age' => 24],
+//     ['name' => 'いけあつ先生', 'area' => '千葉', 'age' => 29]
+// ];
+
+echo $teachers[0]['name'];
+echo '<br>';
+
+// ルイスさんの質問。この形の配列のデータの取得方法は？
+$friends =  ["name" => ["Moe","Yudai"], "area" => ["Akita","Osaka"], "age" => [25,26]];
+echo $friends["name"][0];
+echo '<br>';
+
+// 制御文 if文
+// 練習7
+$var = 9;
+if ($var > 10) {
+    echo '10より大きい数値です';
+}
+echo '<br>';
+
+// 練習8
+// 条件A && 条件B  条件AもBも満たす　論理積
+$var = 19;
+if ($var >= 20 && $var < 30) {
+    echo '20代です';
+}
+echo '<br>';
+// 条件A　|| 条件B　条件Aか条件Bを満たす 論理和
+$var = 89;
+
+if ($var < 10 || $var >= 60){
+    echo 'お子様やシニアの方は半額です';
+}
+echo '<br>';
+
+// 練習１０（練習９を含む）
+$var = 19;
+if ($var >= 20 && $var < 30) {
+    echo '20代です';
+} elseif($var >= 30 && $var < 40) {
+    echo '30代です';
+} else {
+    echo '20代または30代ではありません';
+}
+echo '<br>';
+
+// 練習
+$friends = ['friend_name' => 'seedくん','area' => 'セブ島','gender' => 1,'age' => 13];
+// 10代、20代、30代の判定ができる、if 文を作って、$friendsの年代を判定して「○○さんは、○代です」というふうに
+// 表示しましょう
+
+// うまくいったら、ペアの人の情報に$friendsを上書きして、同じように表示しましょう
+// （上書き処理はif文の上に書いて、一回書いたif文を再利用しましょう）
+// ヒント：変数代入を活用しましょう
+
+// $var = $friends['age'];
+// if ($var >= 10 && $var < 20) {
+//     echo $friends['friend_name'].'は、10代です';
+// } elseif($var >= 20 && $var < 30) {
+//     echo $friends['friend_name'].'は、20代です';
+// } elseif($var >= 30 && $var < 40) {
+//     echo $friends['friend_name'].'は、30代です';
+// } else {
+//     echo $friends['friend_name'].'は、年代不明です';
+// }
+$var = $friends['age'];
+$generation = '';
+if ($var >= 10 && $var < 20) {
+   $generation = '10代';
+    // echo $friends['friend_name'].'は、10代です';
+} elseif($var >= 20 && $var < 30) {
+    $generation = '20代';
+    // echo $friends['friend_name'].'は、20代です';
+} elseif($var >= 30 && $var < 40) {
+    $generation = '30代';
+    // echo $friends['friend_name'].'は、30代です';
+} else {
+    $generation = '年代不明';
+    // echo $friends['friend_name'].'は、年代不明です';
+}
+echo $friends['friend_name'] . 'は、' . $generation . 'です';
 ?>
